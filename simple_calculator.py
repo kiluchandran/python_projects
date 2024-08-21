@@ -67,7 +67,7 @@ zero_button.grid(row=4,column=0)
 
 clear_button = Button(window,text="clear",padx=20,pady=20)
 clear_button.grid(row=4,column=1)
-#clear_button.config(command=lambda :display.set("0"))
+clear_button.config(command=lambda :display.set("0"))
 
 dot_button = Button(window,text=".",padx=30,pady=20,command=lambda :button_clicked("."))
 dot_button.grid(row=4,column=2)
