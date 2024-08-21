@@ -1,7 +1,13 @@
 from tkinter import *
 
-def button_clicked(text):
-    display.set(text)
+def button_clicked(value):
+    current_text=display.get()
+    if current_text == "0":
+        display.set(value)
+    else:
+        display.set(current_text+value)
+
+
 
 # Create main window
 window = Tk()
@@ -59,8 +65,9 @@ mul_button.grid(row=3,column=3)
 zero_button = Button(window,text="0",padx=30,pady=20,command=lambda :button_clicked("0"))
 zero_button.grid(row=4,column=0)
 
-clear_button = Button(window,text="clear",padx=20,pady=20,command=lambda :button_clicked("0"))
+clear_button = Button(window,text="clear",padx=20,pady=20)
 clear_button.grid(row=4,column=1)
+#clear_button.config(command=lambda :display.set("0"))
 
 dot_button = Button(window,text=".",padx=30,pady=20,command=lambda :button_clicked("."))
 dot_button.grid(row=4,column=2)
