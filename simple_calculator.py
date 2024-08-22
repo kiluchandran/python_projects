@@ -13,10 +13,16 @@ def clear_display():
 
 def calculate_display():
     try:
-        result =eval(display.get())
+        expression=display.get()
+        result =eval(expression)
         display.set(result)
+
+
+
     except:
         display.set("error")
+
+
 
 
 
@@ -30,7 +36,7 @@ display = StringVar()
 display.set("0")
 
 # Create display label
-display_label = Label(window, textvariable=display,font=("Arial",24),anchor="e",bg="lightgray",padx=10,pady=10)
+display_label = Label(window, textvariable=display,font=("Arial",24),anchor="ne",bg="lightgray",width=15,height=1)
 display_label.grid(row=0,column=0,columnspan=4)
 
 
@@ -74,20 +80,29 @@ mul_button = Button(window,text="*",padx=30,pady=20,command=lambda t="*": button
 mul_button.grid(row=3,column=3)
 
 zero_button = Button(window,text="0",padx=30,pady=20,command=lambda t="0": button_clicked(t) if t != "=" else calculate_display())
-zero_button.grid(row=4,column=0)
+zero_button.grid(row=4,column=1)
 
 clear_button = Button(window,text="C",padx=30,pady=20,command=clear_display)
 clear_button.grid(row=5,column=0)
 
 
 dot_button = Button(window,text=".",padx=30,pady=20,command=lambda t=".": button_clicked(t) if t != "=" else calculate_display())
-dot_button.grid(row=4,column=2)
+dot_button.grid(row=4,column=0)
 
 div_button = Button(window,text="/",padx=30,pady=20,command=lambda t="/": button_clicked(t) if t != "=" else calculate_display())
 div_button.grid(row=4,column=3)
 
 equal_button=Button(window,text="=",padx=30,pady=20,command=lambda t="=": button_clicked(t) if t != "=" else calculate_display())
-equal_button.grid(row=4,column=1)
+equal_button.grid(row=5,column=3)
+
+button_10 = Button(window,text="%",padx=30,pady=20,command=lambda t="%": button_clicked(t) if t != "=" else calculate_display())
+button_10.grid(row=4,column=2)
+
+button_11 = Button(window,text="(",padx=30,pady=20,command=lambda t="(": button_clicked(t) if t != "=" else calculate_display())
+button_11.grid(row=5,column=1)
+
+button_12 = Button(window,text=")",padx=30,pady=20,command=lambda t=")": button_clicked(t) if t != "=" else calculate_display())
+button_12.grid(row=5,column=2)
 
 
 
