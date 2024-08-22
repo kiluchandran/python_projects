@@ -23,15 +23,15 @@ def calculate_display():
 # Create main window
 window = Tk()
 window.title("Simple Calculator")
-window.geometry("400x400")
+
 
 # Create a variable to store the current display value
 display = StringVar()
 display.set("0")
 
 # Create display label
-display_label = Label(window, textvariable=display,height=3,width=40,bg="lightblue",anchor="e")
-display_label.grid(row=0,column=0,columnspan=11)
+display_label = Label(window, textvariable=display,font=("Arial",24),anchor="e",bg="lightgray",padx=10,pady=10)
+display_label.grid(row=0,column=0,columnspan=4)
 
 
 # Create buttons
@@ -76,8 +76,8 @@ mul_button.grid(row=3,column=3)
 zero_button = Button(window,text="0",padx=30,pady=20,command=lambda t="0": button_clicked(t) if t != "=" else calculate_display())
 zero_button.grid(row=4,column=0)
 
-clear_button = Button(window,text="clear",padx=20,pady=20,command=clear_display)
-clear_button.grid(row=4,column=1)
+clear_button = Button(window,text="C",padx=30,pady=20,command=clear_display)
+clear_button.grid(row=5,column=0)
 
 
 dot_button = Button(window,text=".",padx=30,pady=20,command=lambda t=".": button_clicked(t) if t != "=" else calculate_display())
@@ -87,7 +87,7 @@ div_button = Button(window,text="/",padx=30,pady=20,command=lambda t="/": button
 div_button.grid(row=4,column=3)
 
 equal_button=Button(window,text="=",padx=30,pady=20,command=lambda t="=": button_clicked(t) if t != "=" else calculate_display())
-equal_button.grid(row=5,column=0)
+equal_button.grid(row=4,column=1)
 
 
 
