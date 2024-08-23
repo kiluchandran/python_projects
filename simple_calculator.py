@@ -1,26 +1,30 @@
 from tkinter import *
 
+
+expression= " "
 def button_clicked(value):
-    current_text=display.get()
-    if current_text == "0":
-        display.set(value)
-    else:
-        display.set(current_text+value)
+    global expression
+    expression=expression+value
+    display.set(expression)
 
 
 def clear_display():
-    display.set("0")
+    display.set("")
 
 def calculate_display():
     try:
-        expression=display.get()
+        global expression
         result =eval(expression)
         display.set(result)
+        expression=" "
+
 
 
 
     except:
         display.set("Error")
+        expression=" "
+
 
 
 
@@ -33,7 +37,7 @@ window.title("Simple Calculator")
 
 # Create a variable to store the current display value
 display = StringVar()
-display.set("0")
+
 
 # Create display label
 display_label = Label(window, textvariable=display,font=("Arial",24),anchor="ne",bg="lightgray",width=15,height=1)
