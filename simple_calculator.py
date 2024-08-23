@@ -20,7 +20,7 @@ def calculate_display():
 
 
     except:
-        display.set("error")
+        display.set("Error")
 
 
 
@@ -40,73 +40,19 @@ display_label = Label(window, textvariable=display,font=("Arial",24),anchor="ne"
 display_label.grid(row=0,column=0,columnspan=4)
 
 
+# Define button_layout
+button_layout = [("1",1,0),("2",1,1),("3",1,2),("+",1,3),
+                 ("4",2,0),("5",2,1),("6",2,2),("-",2,3),
+                 ("7",3,0),("8",3,1),("9",3,2),("*",3,3),
+                 (".",4,0),("0",4,1),("%",4,2),("/",4,3),
+                 ("(",5,1),(")",5,2),("=",5,3)]
+
 # Create buttons
-button_1 = Button(window,text="1",padx=30,pady=20,command=lambda t="1" :button_clicked(t) if t != "=" else calculate_display())
-button_1.grid(row=1,column=0)
+for (text,row,column) in button_layout:
+    button=Button(window,text=text,padx=30,pady=20,command=lambda t=text:button_clicked(t) if t != "=" else calculate_display())
+    button.grid(row=row,column=column)
 
-button_2 = Button(window,text="2",padx=30,pady=20,command=lambda t="2" :button_clicked(t) if t != "=" else calculate_display())
-button_2.grid(row=1,column=1)
-
-
-button_3 = Button(window,text="3",padx=30,pady=20,command=lambda t="3" :button_clicked(t) if t != "=" else calculate_display() )
-button_3.grid(row=1,column=2)
-
-plus_button = Button(window,text="+",padx=30,pady=20,command=lambda t="+":button_clicked(t) if t != "=" else calculate_display())
-plus_button.grid(row=1,column=3)
-
-button_4 = Button(window,text="4",padx=30,pady=20,command=lambda t="4": button_clicked(t) if t != "=" else calculate_display())
-button_4.grid(row=2,column=0)
-
-button_5 = Button(window,text="5",padx=30,pady=20,command=lambda t="5": button_clicked(t) if t != "=" else calculate_display())
-button_5.grid(row=2,column=1)
-
-button_6 = Button(window,text="6",padx=30,pady=20,command=lambda t="6": button_clicked(t) if t != "=" else calculate_display())
-
-button_6.grid(row=2,column=2)
-
-minus_button = Button(window,text="-",padx=30,pady=20,command=lambda t="-": button_clicked(t) if t != "=" else calculate_display())
-minus_button.grid(row=2,column=3)
-
-button_7 = Button(window,text="7",padx=30,pady=20,command=lambda t="7": button_clicked(t) if t != "=" else calculate_display())
-button_7.grid(row=3,column=0)
-
-button_8 = Button(window,text="8",padx=30,pady=20,command=lambda t="8": button_clicked(t) if t != "=" else calculate_display())
-button_8.grid(row=3,column=1)
-
-button_9 = Button(window,text="9",padx=30,pady=20,command=lambda t="9": button_clicked(t) if t != "=" else calculate_display())
-button_9.grid(row=3,column=2)
-
-mul_button = Button(window,text="*",padx=30,pady=20,command=lambda t="*": button_clicked(t) if t != "=" else calculate_display())
-mul_button.grid(row=3,column=3)
-
-zero_button = Button(window,text="0",padx=30,pady=20,command=lambda t="0": button_clicked(t) if t != "=" else calculate_display())
-zero_button.grid(row=4,column=1)
-
-clear_button = Button(window,text="C",padx=30,pady=20,command=clear_display)
+clear_button = Button(window,text="c",padx=30,pady=20,command= clear_display)
 clear_button.grid(row=5,column=0)
-
-
-dot_button = Button(window,text=".",padx=30,pady=20,command=lambda t=".": button_clicked(t) if t != "=" else calculate_display())
-dot_button.grid(row=4,column=0)
-
-div_button = Button(window,text="/",padx=30,pady=20,command=lambda t="/": button_clicked(t) if t != "=" else calculate_display())
-div_button.grid(row=4,column=3)
-
-equal_button=Button(window,text="=",padx=30,pady=20,command=lambda t="=": button_clicked(t) if t != "=" else calculate_display())
-equal_button.grid(row=5,column=3)
-
-button_10 = Button(window,text="%",padx=30,pady=20,command=lambda t="%": button_clicked(t) if t != "=" else calculate_display())
-button_10.grid(row=4,column=2)
-
-button_11 = Button(window,text="(",padx=30,pady=20,command=lambda t="(": button_clicked(t) if t != "=" else calculate_display())
-button_11.grid(row=5,column=1)
-
-button_12 = Button(window,text=")",padx=30,pady=20,command=lambda t=")": button_clicked(t) if t != "=" else calculate_display())
-button_12.grid(row=5,column=2)
-
-
-
-
-
 
 window.mainloop()
