@@ -9,7 +9,9 @@ def button_clicked(value):
 
 
 def clear_display():
+    global expression
     display.set("")
+    expression=" "
 
 def calculate_display():
     try:
