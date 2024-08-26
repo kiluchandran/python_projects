@@ -1,6 +1,5 @@
 from tkinter import *
 
-
 expression= " "
 def button_clicked(value):
     global expression
@@ -12,6 +11,13 @@ def clear_display():
     global expression
     display.set("")
     expression=" "
+
+
+def back_space():
+    global expression
+    expression = expression[:len(expression)-1]
+    display.set(expression)
+    expression=expression
 
 def calculate_display():
     try:
@@ -60,5 +66,8 @@ for (text,row,column) in button_layout:
 
 clear_button = Button(window,text="c",padx=30,pady=20,command= clear_display)
 clear_button.grid(row=5,column=0)
+
+back_button = Button(window,text="<-",padx=30,pady=20,command=back_space)
+back_button.grid(row=6,column=0)
 
 window.mainloop()
