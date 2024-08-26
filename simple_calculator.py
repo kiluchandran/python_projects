@@ -15,7 +15,7 @@ def clear_display():
 
 def back_space():
     global expression
-    expression = expression[:len(expression)-1]
+    expression = expression[:len(expression)-1] # positive indexing
     display.set(expression)
     expression=expression
 
