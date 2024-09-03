@@ -37,7 +37,7 @@ while turn > 0 and guessed_word != list(word):
         print("You have", turn, "more guesses")
           
 
-if guessed_word == list(word):
-    print("You win")
+if turn == 0:
+    print("You lose")
 else:
-    print("you lose")
+    print("you win")
