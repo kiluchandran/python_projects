@@ -26,6 +26,17 @@ def find_occurrences(string, char):
 
 while turn > 0 and guessed_word != list(word):
     guess = input("Guess a character : ")
+
+    if not guess.isalpha():
+        print("Guess only a character")
+        continue
+    elif len(guess) > 1:
+        print("Guess only a single character")
+        continue
+    elif guess in guessed_word:
+        print("You have already guessed that letter")
+        continue
+
     if guess in word:
         indexes = find_occurrences(word, guess)
         for position in indexes:
